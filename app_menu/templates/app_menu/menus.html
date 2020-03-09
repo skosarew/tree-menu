@@ -1,0 +1,21 @@
+{% load menu_tags %}
+
+{% if has_children %}
+    <li class="has-children">
+        <input type="checkbox"
+               name={{ menu_item.title }} id={{ menu_item.id }}
+                {% if menu_item.id in unfolded_menu_item_ids %} checked
+                {% endif %}>
+        <label for={{ menu_item.title }}><a
+                href="{{ menu_item.named_url }}">{{ menu_item.title }}</a></label>
+        <ul>
+            {% for child in list_of_children %}
+                {% draw_children child %}
+            {% endfor %}
+        </ul>
+    </li>
+{% endif %}
+
+{% if not has_children %}
+    <li><a href="{{ menu_item.named_url }}">{{ menu_item.title }}</a></li>
+{% endif %}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    {% load menu_tags %}
+    <link rel="stylesheet" href="{% static 'css/accord.css' %}">
+    <title>Tree menu</title>
+</head>
+<body>
+<h1>Tree menu</h1>
+
+<ul class="cd-accordion-menu">
+{% draw_menu 'Living thing' %}
+</ul>
+
+<ul class="cd-accordion-menu">
+{% draw_menu 'Genres' %}
+</ul>
+
+</body>
+</html>
